@@ -1,5 +1,6 @@
 {
     "name": "mail-waterfish",
+    "type": "static",
     "build": {
         "command": "",
         "outputDir": "."
