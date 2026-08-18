@@ -1,0 +1,7 @@
+{
+    "name": "mail-waterfish",
+    "build": {
+        "command": "",
+        "outputDir": "."
+    }
+}
