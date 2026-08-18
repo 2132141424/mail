@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="baidu-site-verification" content="codeva-gZQTkWjUYi" />
+  <title>水鱼邮件 - 匿名代发邮件服务 | 水鱼之家</title>
+  <meta name="description" content="通过水鱼之家邮箱佚名发送邮件，填写收件人、主题与正文即可一键代发。每IP每分钟限一封，请合理使用。">
+  <link rel="shortcut icon" href="icon.ico">
+
+  <script>
+    window.AliyunCaptchaConfig = {
+      region: "cn",            
+      prefix: "esa-lo3afy3oe2", 
+    };
+  </script>
+
+  <script type="text/javascript" src="https://o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js"></script>
+  <style>
+    :root {
+      --deep: #0a1628;
+      --surface: #f8fafc;
+      --radius: 16px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.05);
+      --header-height: 60px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--surface);
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .navbar {
+      width: 100%;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+    }
+    .navbar .logo {
+      height: 32px;
+      border-radius: 8px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: var(--deep);
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      color: var(--deep);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .card .subtitle {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      color: #0f172a;
+      background: #ffffff;
+      border: 0.8px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #94a3b8;
+      box-shadow: 0 0 0 3px rgba(148,163,184,0.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #94a3b8;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 160px;
+      line-height: 1.6;
+    }
+
+    /* 滑块验证区域 */
+    .captcha-container {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0 20px;
+    }
+
+    /* 错误提示 */
+    .form-error {
+      display: none;
+      background: #fef2f2;
+      color: #dc2626;
+      font-size: 13px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      border: 0.8px solid #fecaca;
+    }
+
+    /* 成功提示 */
+    .form-success {
+      display: none;
+      background: #f0fdf4;
+      color: #16a34a;
+      font-size: 13px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      border: 0.8px solid #bbf7d0;
+    }
+
+    /* 提交按钮 */
+    .btn-submit {
+      width: 100%;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      background: var(--deep);
+      color: #ffffff;
+      opacity: 0.6;
+    }
+    .btn-submit:not(:disabled) {
+      opacity: 1;
+      cursor: pointer;
+    }
+    .btn-submit:not(:disabled):hover {
+      background: #0f1e3a;
+      box-shadow: 0 4px 12px rgba(10,22,40,0.15);
+    }
+    .btn-submit:not(:disabled):active {
+      transform: scale(0.98);
+    }
+    .btn-submit:disabled {
+      cursor: not-allowed;
+    }
+
+    /* 底部 */
+    .footer-note {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 13px;
+      padding: 0 0 24px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .card {
+        padding: 24px 18px;
+      }
+      .card h2 {
+        font-size: 18px;
+      }
+      .main-content {
+        padding: 20px 12px;
+      }
+      .navbar {
+        padding: 10px 16px;
+      }
+      .navbar a {
+        font-size: 16px;
+      }
+      .form-group input,
+      .form-group textarea {
+        font-size: 16px;
+      }
+      .btn-submit {
+        font-size: 16px;
+        padding: 14px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <img class="logo" src="icon.ico" alt="水鱼邮件">
+    <a href="https://waterfish.ren">水鱼邮件</a>
+  </nav>
+
+  <!-- 主内容 -->
+  <div class="main-content">
+
+    <div class="card">
+      <h2>发送邮件</h2>
+      <p class="subtitle">填写以下信息发送邮件</p>
+
+      <div class="form-error" id="formError"></div>
+      <div class="form-success" id="formSuccess"></div>
+
+      <!-- 收件人 -->
+      <div class="form-group">
+        <label for="to">收件人邮箱</label>
+        <input type="email" id="to" name="to" placeholder="example@domain.com" required autocomplete="email">
+      </div>
+
+      <!-- 主题 -->
+      <div class="form-group">
+        <label for="subject">邮件主题</label>
+        <input type="text" id="subject" name="subject" placeholder="请输入邮件主题" required>
+      </div>
+
+      <!-- 正文 -->
+      <div class="form-group">
+        <label for="body">邮件正文</label>
+        <textarea id="body" name="body" placeholder="请输入邮件正文内容..." required></textarea>
+      </div>
+
+      <!-- 人机验证（ESA 滑块验证，弹出式，无需页面内嵌展示） -->
+      <div class="captcha-container">
+        <div id="captcha-element" style="display:none;"></div>
+      </div>
+
+      <!-- 提交 -->
+      <button class="btn-submit" id="submitBtn">发送邮件</button>
+    </div>
+
+    <div class="footer-note">每 IP 每分钟限发一封 · <a href="https://waterfish.ren" style="color: inherit; text-decoration: none;">waterfish.ren</a></div>
+  </div>
+
+  <script>
+    const API_URL = 'https://api.mail.waterfish.ren/api/send';
+
+    let isSubmitting = false;
+    let captcha = null;  
+    function showError(msg) {
+      const errorDiv = document.getElementById('formError');
+      errorDiv.textContent = msg;
+      errorDiv.style.display = 'block';
+      document.getElementById('formSuccess').style.display = 'none';
+    }
+    function showSuccess(msg) {
+      const successDiv = document.getElementById('formSuccess');
+      successDiv.textContent = msg;
+      successDiv.style.display = 'block';
+      document.getElementById('formError').style.display = 'none';
+    }
+    function resetButton() {
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = false;
+      btn.textContent = '发送邮件';
+    }
+
+
+    window.initAliyunCaptcha({
+      SceneId: "j7sj6260", 
+      mode: "popup",
+      element: "#captcha-element",
+      server: ['captcha-esa-open.aliyuncs.com', 'captcha-esa-open-b.aliyuncs.com'],
+      slideStyle: { width: 360, height: 40 },
+      language: 'cn',
+      // 验证通过回调：透出验签参数，携参请求后端
+      success: function (captchaVerifyParam) {
+        sendMailRequest(captchaVerifyParam);
+      },
+      fail: function (result) {
+        console.error(result);
+        showError('人机验证未通过，请重试');
+        resetButton();
+        if (captcha) captcha.refresh();
+      },
+      getInstance: function (instance) {
+        captcha = instance;
+      },
+      onError: function (errorInfo) {
+        console.error(errorInfo);
+        showError('人机验证组件加载失败，请刷新重试');
+        resetButton();
+      },
+    });
+
+    // 点击提交：先校验表单，再弹出验证码
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      if (isSubmitting) return;
+
+      const to = document.getElementById('to').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const body = document.getElementById('body').value.trim();
+
+      if (!to || !subject || !body) {
+        showError('请填写所有必填字段');
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(to)) {
+        showError('请输入有效的邮箱地址');
+        return;
+      }
+      if (!captcha) {
+        showError('人机验证组件加载中，请稍后再试');
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '请完成滑块验证...';
+      captcha.show();   // 弹出 ESA 滑块验证
+    });
+
+    // 验证通过后，携带验签参数向后端发送邮件
+    async function sendMailRequest(captchaVerifyParam) {
+      if (isSubmitting) return;
+      isSubmitting = true;
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '发送中...';
+
+      const to = document.getElementById('to').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const body = document.getElementById('body').value.trim();
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'captcha-verify-param': captchaVerifyParam
+          },
+          body: JSON.stringify({ to, subject, body })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || data.message || '发送失败');
+        }
+
+        showSuccess(data.message || '邮件发送成功！');
+
+        // 重置表单
+        document.getElementById('to').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('body').value = '';
+        resetButton();
+
+      } catch (err) {
+        showError(err.message || '发送失败，请稍后重试');
+        resetButton();
+        if (captcha) captcha.refresh();
+      } finally {
+        isSubmitting = false;
+      }
+    }
+  </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"e87ba361f76e429796000eb40ff731a5","r":1}' crossorigin="anonymous"></script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</body>
+</html>

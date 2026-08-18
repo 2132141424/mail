@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>404 - 水鱼之家</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+<style>
+:root {
+  --deep-blue: #0a1628;
+  --teal: #0d9488;
+  --cyan: #06b6d4;
+  --surface: #ffffff;
+  --text-primary: #1a1f2e;
+  --text-secondary: #5a6275;
+  --text-muted: #8890a4;
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-xl: 0 24px 56px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.06);
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --font-sans: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --header-height: 72px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.navbar .logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar .logo-icon {
+  height: 38px;
+  width: 38px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.navbar .logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--deep-blue);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li a {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 28px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-smooth);
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.nav-links li a:hover {
+  color: var(--deep-blue);
+  background: rgba(6,182,212,0.06);
+}
+
+.nav-links li a.nav-cta {
+  background: var(--deep-blue);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 22px;
+  box-shadow: 0 4px 14px rgba(10,22,40,0.2);
+}
+
+.nav-links li a.nav-cta:hover {
+  background: #152544;
+  box-shadow: 0 6px 20px rgba(10,22,40,0.3);
+  transform: translateY(-1px);
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 40px 80px;
+  background: linear-gradient(160deg, #f0f5fb 0%, #e8f0f8 30%, #f8fafc 60%, #fefefe 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -180px; right: -120px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle at center, rgba(6,182,212,0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -140px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle at center, rgba(13,148,136,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-float-icon {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-float-icon:nth-child(1) { top: 14%; left: 6%; font-size: 48px; }
+.hero-float-icon:nth-child(2) { top: 20%; right: 8%; font-size: 40px; animation-delay: -2s; }
+.hero-float-icon:nth-child(3) { bottom: 18%; left: 10%; font-size: 36px; animation-delay: -4s; }
+.hero-float-icon:nth-child(4) { bottom: 22%; right: 7%; font-size: 44px; animation-delay: -1.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-16px) rotate(3deg); }
+  50% { transform: translateY(-6px) rotate(-2deg); }
+  75% { transform: translateY(-20px) rotate(1deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(6,182,212,0.1);
+  color: var(--teal);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 7vw, 68px);
+  font-weight: 800;
+  color: var(--deep-blue);
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero h1 .accent {
+  background: linear-gradient(135deg, var(--teal), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 32px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-smooth);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--deep-blue);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(10,22,40,0.25);
+}
+
+.btn-primary:hover {
+  background: #152544;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(10,22,40,0.32);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--deep-blue);
+  border: 2px solid rgba(10,22,40,0.18);
+}
+
+.btn-outline:hover {
+  border-color: var(--deep-blue);
+  background: rgba(10,22,40,0.03);
+  transform: translateY(-2px);
+}
+
+.footer {
+  background: #0b0f18;
+  color: #c8ced8;
+  padding: 48px 40px 32px;
+  text-align: center;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  height: 36px;
+  width: 36px;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.footer-logo:hover img { opacity: 1; }
+
+.footer-logo span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e8ecf2;
+  letter-spacing: -0.3px;
+}
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  margin: 0 auto 20px;
+  border-radius: 1px;
+}
+
+.footer p {
+  font-size: 14px;
+  opacity: 0.6;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 0 18px; }
+  .navbar .logo-text { font-size: 17px; }
+  .navbar .logo-icon { height: 32px; width: 32px; }
+  .nav-links li a { padding: 8px 12px; font-size: 13px; }
+  .hero { padding: 80px 20px 60px; min-height: auto; }
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 16px; }
+  .hero-float-icon { display: none; }
+  .footer { padding: 36px 20px 28px; }
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="/" class="logo-link" title="水鱼之家">
+    <img class="logo-icon" src="icon.ico" alt="Logo">
+    <span class="logo-text">水鱼之家</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://ziyuan.waterfish.ren">资源中心</a></li>
+    <li><a href="https://docker.waterfish.ren">三方容器</a></li>
+    <li><a href="https://board.waterfish.ren">留言板</a></li>
+    <li><a href="https://waterfish.ren" class="nav-cta">返回首页</a></li>
+  </ul>
+</header>
+
+<section class="hero">
+  <div class="hero-float-icon">📦</div>
+  <div class="hero-float-icon">🐳</div>
+  <div class="hero-float-icon">💬</div>
+  <div class="hero-float-icon">⚡</div>
+
+  <div class="hero-content">
+    <div class="hero-badge">WATERFISH</div>
+    <h1>4<span class="accent">0</span>4</h1>
+    <p>
+      <br>
+      该页面不存在或已被移除。
+    </p>
+    <div class="hero-buttons">
+      <a href="https://waterfish.ren" class="btn btn-primary">返回首页</a>
+      <a href="https://ziyuan.waterfish.ren" class="btn btn-outline">资源中心</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="/" class="footer-logo">
+    <img src="icon.ico" alt="Logo">
+    <span>水鱼之家</span>
+  </a>
+  <div class="footer-divider"></div>
+  <p>&copy; 2026 waterfish.ren &middot; 水鱼之家</p>
+</footer>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</body>
+</html>
